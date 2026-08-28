@@ -1,0 +1,356 @@
+{
+  "artifact_id": "das-90-canonical-phenology-evidence-v1",
+  "artifact_version": "1.0.0",
+  "created_at": "2026-08-27",
+  "language": "en",
+  "scope": {
+    "territory": "Italy",
+    "purpose": "Claim-bound scientific evidence package for biological phenology",
+    "excluded_purpose": "Legal collection calendars",
+    "target_contract": "phenology-v1",
+    "species": [
+      "Tuber aestivum",
+      "Tuber borchii",
+      "Tuber magnatum",
+      "Tuber melanosporum",
+      "Tuber uncinatum",
+      "Boletus edulis",
+      "Cantharellus cibarius"
+    ]
+  },
+  "governance": {
+    "closed_input": true,
+    "runtime_must_not_access_network": true,
+    "legal_calendar_must_remain_separate": true,
+    "confidence_must_not_affect_favourability": true,
+    "overall_v1_must_remain_unchanged": true,
+    "no_frontend_derived_window": true,
+    "fail_closed_when_boundary_is_not_claim_bound": true
+  },
+  "decision_policy": {
+    "authorized_boundary_requires": [
+      "taxon-specific evidence",
+      "biological rather than legal semantics",
+      "geographic transferability to Italy",
+      "an explicit start and end boundary supported by the source",
+      "a source locator that permits independent verification"
+    ],
+    "observed_months_are_not_automatically_boundaries": true,
+    "harvest_dates_are_not_automatically_maturation_dates": true,
+    "market_or_commercial_calendars_are_excluded": true,
+    "generic field guides_and_wikipedia_are_excluded": true
+  },
+  "sources": [
+    {
+      "source_id": "S01",
+      "citation": "Buentgen U, Bagi I, Fekete O, et al. New Insights into the Complex Relationship between Weight and Maturity of Burgundy Truffles (Tuber aestivum). PLOS ONE. 2017;12:e0170375.",
+      "doi": "10.1371/journal.pone.0170375",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0170375",
+      "source_type": "peer_reviewed_primary_open_access",
+      "territories": ["Hungary", "Switzerland"],
+      "claim_locators": ["Abstract", "Materials and Methods", "Discussion"],
+      "relevant_claims": [
+        "Observed fruit bodies and maturation classes between June and October in Hungary.",
+        "Systematic harvest at the Hungarian site extended from early May to late November, with main peaks from mid-June to mid-August.",
+        "Swiss observations included fruit bodies from August through December.",
+        "Maturity and fruit-body size were not reliably coupled."
+      ],
+      "limitations": [
+        "The principal orchard was outside Italy.",
+        "The authors explicitly warn against broad biogeographic generalisation.",
+        "Observed harvesting does not provide exact nationwide biological boundaries."
+      ]
+    },
+    {
+      "source_id": "S02",
+      "citation": "Steidinger BS, et al. The fall of the summer truffle: Recurring hot, dry summers drive fruitbody declines, but not range retractions, in Tuber aestivum. Global Change Biology. 2022.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9828532/",
+      "source_type": "peer_reviewed_primary_open_access",
+      "territories": ["Europe"],
+      "relevant_claims": [
+        "Tuber aestivum fruiting overlaps the warm part of the tree growing season.",
+        "Recurring hot and dry summers affect fruit-body production."
+      ],
+      "limitations": [
+        "The study supports climate sensitivity, not a fixed Italian start/end date."
+      ]
+    },
+    {
+      "source_id": "S03",
+      "citation": "Salerni E, Perini C, Gardin L. Linking Climate Variables with Tuber borchii Sporocarps Production. Natural Resources. 2014;5:408-418.",
+      "doi": "10.4236/nr.2014.58038",
+      "url": "https://www.scirp.org/journal/paperinformation?paperid=47496",
+      "source_type": "peer_reviewed_primary_open_access",
+      "territories": ["Italy"],
+      "claim_locators": ["Abstract", "Results, monthly production graph"],
+      "relevant_claims": [
+        "Five natural Italian production areas were assessed.",
+        "The highest observed production occurred in February and March.",
+        "Production was associated with rainfall and temperature in preceding autumn months."
+      ],
+      "limitations": [
+        "A production peak is not a complete inclusive biological window.",
+        "The paper does not support classifying every date outside February-March as biologically incompatible."
+      ]
+    },
+    {
+      "source_id": "S04",
+      "citation": "Iotti M, et al. Development and validation of a real-time PCR assay for detection and quantification of Tuber magnatum in soil. BMC Microbiology. 2012;12:93.",
+      "doi": "10.1186/1471-2180-12-93",
+      "url": "https://link.springer.com/article/10.1186/1471-2180-12-93",
+      "source_type": "peer_reviewed_primary_open_access",
+      "territories": ["Italy"],
+      "relevant_claims": [
+        "The paper identifies the Tuber magnatum season as September through December in its Italian study context."
+      ],
+      "limitations": [
+        "The label season does not define exact inclusive day boundaries or transition periods.",
+        "The primary outcome is soil detection, not national phenological calibration."
+      ]
+    },
+    {
+      "source_id": "S05",
+      "citation": "Graziosi S, Hall IR, Zambonelli A. The Mysteries of the White Truffle: Its Biology, Ecology and Cultivation. Encyclopedia. 2022;2:1959-1971.",
+      "doi": "10.3390/encyclopedia2040135",
+      "url": "https://www.mdpi.com/2673-8392/2/4/135",
+      "source_type": "peer_reviewed_review_open_access",
+      "territories": ["Italy", "Europe"],
+      "relevant_claims": [
+        "The review describes the height of the Tuber magnatum season as October through December.",
+        "Ecology and life-cycle knowledge remain incomplete."
+      ],
+      "limitations": [
+        "A review-level seasonal description is insufficient for exact nationwide day boundaries."
+      ]
+    },
+    {
+      "source_id": "S06",
+      "citation": "Pacioni G, Leonardi M, Di Carlo P, et al. Instrumental monitoring of the birth and development of truffles in a Tuber melanosporum orchard. Mycorrhiza. 2014;24:65-72.",
+      "doi": "10.1007/s00572-014-0561-z",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24522842/",
+      "source_type": "peer_reviewed_primary",
+      "territories": ["Italy"],
+      "relevant_claims": [
+        "The monitored orchard supports a staged developmental model.",
+        "Melanin and aroma maturation occurred from approximately mid-October through late December.",
+        "Ripe truffles were collected during winter."
+      ],
+      "limitations": [
+        "A single orchard model is not an Italy-wide calibration.",
+        "The model does not authorize a universal binary in-season/out-of-season boundary."
+      ]
+    },
+    {
+      "source_id": "S07",
+      "citation": "Paolocci F, Rubini A, Riccioni C, Topini F, Arcioni S. Tuber aestivum and Tuber uncinatum: two morphotypes or two species? FEMS Microbiology Letters. 2004;235:109-115.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15158269/",
+      "source_type": "peer_reviewed_primary",
+      "territories": ["Europe"],
+      "relevant_claims": [
+        "The taxonomic separation of Tuber aestivum and Tuber uncinatum is not supported as a simple independent-species assumption."
+      ],
+      "limitations": [
+        "Taxonomic evidence alone does not define phenological boundaries."
+      ]
+    },
+    {
+      "source_id": "S08",
+      "citation": "Molinier V, van Tuinen D, Chevalier G, et al. A multigene phylogeny demonstrates that Tuber aestivum and Tuber uncinatum are conspecific organisms. Fungal Biology. 2013;117:503-512.",
+      "source_type": "peer_reviewed_primary",
+      "territories": ["Europe"],
+      "relevant_claims": [
+        "Tuber aestivum and Tuber uncinatum were resolved as conspecific organisms."
+      ],
+      "limitations": [
+        "Commercial morphotypes and local phenology may still differ and require explicit modelling."
+      ]
+    },
+    {
+      "source_id": "S09",
+      "citation": "Salerni E, Paoli L, Perini C. Combined impact of forest management and climate change on Boletus edulis productivity. Italian Journal of Mycology. 2023;52:76-88.",
+      "doi": "10.6092/issn.2531-7342/16464",
+      "url": "https://italianmycology.unibo.it/article/view/16464",
+      "source_type": "peer_reviewed_primary_open_access",
+      "territories": ["Italy"],
+      "relevant_claims": [
+        "Boletus edulis productivity responded to rainfall and temperature extremes and forest treatment.",
+        "Weather-event effects were observed with delays on the order of weeks."
+      ],
+      "limitations": [
+        "The study does not establish fixed national calendar boundaries.",
+        "Productivity response depends on site and management."
+      ]
+    },
+    {
+      "source_id": "S10",
+      "citation": "Andrew C, Heegaard E, Hoiland K, et al. Explaining European fungal fruiting phenology with climate variability. Ecology. 2018;99:1306-1315.",
+      "doi": "10.1002/ecy.2237",
+      "url": "https://esajournals.onlinelibrary.wiley.com/doi/10.1002/ecy.2237",
+      "source_type": "peer_reviewed_primary",
+      "territories": ["Europe"],
+      "relevant_claims": [
+        "Mean fungal fruiting timing changes materially with latitude and altitude.",
+        "Climate variability explains substantial variation in fruiting phenology."
+      ],
+      "limitations": [
+        "European aggregate evidence cannot supply exact Italy-wide species boundaries."
+      ]
+    },
+    {
+      "source_id": "S11",
+      "citation": "Kauserud H, Heegaard E, Buentgen U, et al. Warming-induced shift in European mushroom fruiting phenology. PNAS. 2012;109:14488-14493.",
+      "doi": "10.1073/pnas.1200789109",
+      "url": "https://www.pnas.org/doi/10.1073/pnas.1200789109",
+      "source_type": "peer_reviewed_primary",
+      "territories": ["Austria", "Norway", "Switzerland", "United Kingdom"],
+      "relevant_claims": [
+        "Large dated datasets show that European autumn mushroom fruiting seasons shift and extend with climate."
+      ],
+      "limitations": [
+        "No Italian nationwide fixed boundary is provided."
+      ]
+    },
+    {
+      "source_id": "S12",
+      "citation": "Schenk-Jaeger KM, Egli S, Hanimann D, et al. Introducing Mushroom Fruiting Patterns from the Swiss National Poisons Information Centre. PLOS ONE. 2016;11:e0162314.",
+      "doi": "10.1371/journal.pone.0162314",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0162314",
+      "source_type": "peer_reviewed_observational_open_access",
+      "territories": ["Switzerland"],
+      "relevant_claims": [
+        "The dated dataset includes Cantharellus cibarius and demonstrates observable, species-specific fruiting patterns."
+      ],
+      "limitations": [
+        "Poison-centre contacts are an opportunistic proxy rather than calibrated Italian biological boundaries.",
+        "Transferability to Italy is not established."
+      ]
+    },
+    {
+      "source_id": "S13",
+      "citation": "Buentgen U, Egli S, Galvan JD, et al. Drought-induced changes in the phenology, productivity and diversity of Spanish fungi. Fungal Ecology. 2015;16:6-18.",
+      "doi": "10.1016/j.funeco.2015.03.008",
+      "url": "https://www.sciencedirect.com/science/article/pii/S1754504815000331",
+      "source_type": "peer_reviewed_primary",
+      "territories": ["Spain"],
+      "relevant_claims": [
+        "Drought altered phenology and productivity of edible fungi including Boletus edulis and Cantharellus cibarius."
+      ],
+      "limitations": [
+        "Spanish drought response cannot define exact Italian boundaries."
+      ]
+    }
+  ],
+  "species_decisions": [
+    {
+      "taxon": "Tuber aestivum",
+      "status": "PARTIAL_EVIDENCE",
+      "runtime_boundary_authorized": false,
+      "supported_observation": {
+        "phase": "FRUITING_AND_MATURATION_OBSERVED",
+        "months": [5, 6, 7, 8, 9, 10, 11],
+        "territory": "Central European orchards",
+        "source_ids": ["S01", "S02"]
+      },
+      "reason": "The May-November interval is directly observed outside Italy and varies with geography and climate; it is not an exact Italy-wide boundary.",
+      "runtime_result": "UNKNOWN"
+    },
+    {
+      "taxon": "Tuber uncinatum",
+      "status": "TAXONOMIC_SCOPE_UNRESOLVED_FOR_SEPARATE_RULE",
+      "runtime_boundary_authorized": false,
+      "supported_observation": null,
+      "source_ids": ["S01", "S07", "S08"],
+      "reason": "Primary taxonomic evidence treats T. uncinatum and T. aestivum as conspecific; a separate calendar must not be fabricated from commercial naming.",
+      "runtime_result": "UNKNOWN"
+    },
+    {
+      "taxon": "Tuber borchii",
+      "status": "PARTIAL_EVIDENCE",
+      "runtime_boundary_authorized": false,
+      "supported_observation": {
+        "phase": "PRODUCTION_PEAK",
+        "months": [2, 3],
+        "territory": "Five natural Italian production areas",
+        "source_ids": ["S03"]
+      },
+      "reason": "February-March is an observed production peak, not a complete inclusive season and not evidence that all other dates are incompatible.",
+      "runtime_result": "UNKNOWN"
+    },
+    {
+      "taxon": "Tuber magnatum",
+      "status": "PARTIAL_EVIDENCE",
+      "runtime_boundary_authorized": false,
+      "supported_observation": {
+        "phase": "FRUITING_SEASON",
+        "months": [9, 10, 11, 12],
+        "territory": "Italian study contexts",
+        "source_ids": ["S04", "S05"]
+      },
+      "reason": "The sources support an autumn to early-winter season, but do not calibrate exact inclusive day boundaries or transitions for all Italy.",
+      "runtime_result": "UNKNOWN"
+    },
+    {
+      "taxon": "Tuber melanosporum",
+      "status": "PARTIAL_EVIDENCE",
+      "runtime_boundary_authorized": false,
+      "supported_observation": {
+        "phase": "ASCOCARP_MATURATION",
+        "approximate_period": "mid-October through late December, followed by winter ripeness",
+        "territory": "Monitored Italian orchard",
+        "source_ids": ["S06"]
+      },
+      "reason": "The developmental stages are supported at one orchard, but they do not establish a universal Italy-wide binary season.",
+      "runtime_result": "UNKNOWN"
+    },
+    {
+      "taxon": "Boletus edulis",
+      "status": "STATIC_BOUNDARY_NOT_AUTHORIZED",
+      "runtime_boundary_authorized": false,
+      "supported_observation": {
+        "phase": "WEATHER_DEPENDENT_FRUITING",
+        "territory": "Italy and Europe",
+        "source_ids": ["S09", "S10", "S11", "S13"]
+      },
+      "reason": "Fruiting responds to recent weather, altitude, latitude, habitat and management; no fixed national biological window is supported.",
+      "runtime_result": "UNKNOWN"
+    },
+    {
+      "taxon": "Cantharellus cibarius",
+      "status": "STATIC_BOUNDARY_NOT_AUTHORIZED",
+      "runtime_boundary_authorized": false,
+      "supported_observation": {
+        "phase": "WEATHER_DEPENDENT_FRUITING",
+        "territory": "European observational datasets",
+        "source_ids": ["S10", "S11", "S12", "S13"]
+      },
+      "reason": "Available datasets show climate-sensitive fruiting but do not provide calibrated Italian start/end boundaries.",
+      "runtime_result": "UNKNOWN"
+    }
+  ],
+  "excluded_inputs": [
+    {
+      "category": "regional_legal_collection_calendars",
+      "reason": "They regulate collection and do not establish biological presence or maturation."
+    },
+    {
+      "category": "commercial_truffle_calendars_and_nurseries",
+      "reason": "They are not claim-bound scientific evidence."
+    },
+    {
+      "category": "wikipedia_and_generic_field_guides",
+      "reason": "Useful only for discovery; not accepted as contract authority."
+    }
+  ],
+  "final_gates": {
+    "SEVEN_SPECIES_EXTERNAL_REVIEW": "COMPLETE",
+    "CLAIM_BOUND_SOURCE_INVENTORY": "COMPLETE",
+    "LEGAL_BIOLOGICAL_SEPARATION": "PASS",
+    "NO_INVENTED_WINDOWS": "PASS",
+    "TAXONOMIC_CONFLICT_ASSESSED": "PASS",
+    "ITALY_WIDE_EXACT_BOUNDARIES": "NOT_AUTHORIZED",
+    "PHENOLOGY_V1_RUNTIME_UPDATE": "BLOCKED",
+    "DAS_87_SCIENTIFIC_INPUT_PACKAGE": "PARTIAL_NOT_RUNTIME_READY",
+    "DAS_85_REOPENING": "NOT_AUTHORIZED"
+  },
+  "recommended_next_action": "Commission or locate claim-bound Italian phenology datasets with explicit observation dates, locations, maturity definitions and coverage for each taxon. Until then, preserve UNKNOWN rather than mapping legal or commercial calendars to biological compatibility."
+}
