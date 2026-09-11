@@ -1,0 +1,661 @@
+<div id="dante-screens" aria-label="Mockup interattivo delle schermate mobile di DANTE AI Scout">
+  <style>
+    #dante-screens {
+      --dm-green: light-dark(#164437, #72c5a2);
+      --dm-green-dark: light-dark(#0d2d25, #0d2d25);
+      --dm-green-soft: light-dark(#dcebe3, #25463a);
+      --dm-gold: light-dark(#c99a4b, #e1b860);
+      --dm-bg: light-dark(#eef1ec, #101713);
+      --dm-panel: light-dark(#ffffff, #19231f);
+      --dm-text: light-dark(#17211c, #f2f7f4);
+      --dm-muted: light-dark(#66736d, #a9b8b1);
+      --dm-border: light-dark(#d8e0db, #34443c);
+      --dm-alert: light-dark(#b7463e, #ee7b72);
+      width: 100%;
+      display: grid;
+      place-items: center;
+      gap: 12px;
+      padding: 4px 0;
+      color: var(--dm-text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    #dante-screens * { box-sizing: border-box; }
+    #dante-screens button, #dante-screens input, #dante-screens select, #dante-screens textarea { font: inherit; }
+    #dante-screens button { cursor: pointer; }
+    #dante-screens [hidden] { display: none !important; }
+
+    #dante-screens .dm-scenes {
+      width: min(100%, 620px);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    #dante-screens .dm-scene-button {
+      min-height: 38px;
+      padding: 0 12px;
+      border: 1px solid var(--dm-border);
+      border-radius: 999px;
+      color: var(--dm-muted);
+      background: var(--dm-panel);
+    }
+
+    #dante-screens .dm-scene-button[aria-pressed="true"] {
+      color: #fff;
+      border-color: var(--dm-green-dark);
+      background: var(--dm-green-dark);
+    }
+
+    #dante-screens .dm-phone {
+      width: min(100%, 390px);
+      height: 760px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--dm-border);
+      border-radius: 30px;
+      background: var(--dm-bg);
+      box-shadow: 0 18px 50px light-dark(rgba(22,52,41,.18), rgba(0,0,0,.45));
+    }
+
+    #dante-screens .dm-status {
+      height: 28px;
+      padding: 7px 18px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #fff;
+      background: var(--dm-green-dark);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    #dante-screens .dm-status span:last-child { display: flex; align-items: center; gap: 7px; }
+    #dante-screens .dm-status svg { width: 14px; height: 14px; }
+
+    #dante-screens .dm-header {
+      height: 60px;
+      padding: 0 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #fff;
+      background: var(--dm-green-dark);
+    }
+
+    #dante-screens .dm-brand { display: flex; align-items: center; gap: 9px; }
+    #dante-screens .dm-logo {
+      width: 35px;
+      height: 35px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      color: var(--dm-gold);
+      background: rgba(255,255,255,.11);
+    }
+    #dante-screens .dm-logo svg { width: 19px; height: 19px; }
+    #dante-screens .dm-brand strong { display: block; font-size: 15px; font-weight: 500; }
+    #dante-screens .dm-brand small { display: block; color: rgba(255,255,255,.65); font-size: 11px; }
+    #dante-screens .dm-header-actions { display: flex; align-items: center; }
+    #dante-screens .dm-profile {
+      width: 42px;
+      height: 42px;
+      border: 0;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: transparent;
+    }
+    #dante-screens .dm-profile svg { width: 21px; height: 21px; }
+
+    #dante-screens .dm-screen {
+      position: absolute;
+      inset: 88px 0 0;
+      padding-bottom: 72px;
+      background: var(--dm-bg);
+    }
+
+    #dante-screens .dm-map {
+      position: absolute;
+      inset: 0 0 72px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 79% 20%, color-mix(in srgb, var(--dm-green-soft) 78%, transparent) 0 65px, transparent 66px),
+        radial-gradient(circle at 16% 78%, color-mix(in srgb, var(--dm-green-soft) 76%, transparent) 0 88px, transparent 89px),
+        repeating-radial-gradient(ellipse at 48% 44%, transparent 0 38px, color-mix(in srgb, var(--dm-border) 68%, transparent) 39px 40px, transparent 41px 70px),
+        linear-gradient(145deg, light-dark(#e9e7dd, #17201c), light-dark(#f8f5ef, #202b26));
+    }
+
+    #dante-screens .dm-road {
+      position: absolute;
+      height: 12px;
+      border-radius: 99px;
+      background: light-dark(#d3d1c8, #36413c);
+      box-shadow: inset 0 0 0 3px light-dark(#f7f5ee, #26312c);
+      transform-origin: left center;
+    }
+    #dante-screens .dm-road.r1 { width: 430px; left: -30px; top: 238px; transform: rotate(-12deg); }
+    #dante-screens .dm-road.r2 { width: 370px; left: 92px; top: 56px; transform: rotate(68deg); }
+    #dante-screens .dm-road.r3 { width: 300px; left: -26px; top: 450px; transform: rotate(-54deg); }
+    #dante-screens .dm-heat { position: absolute; width: 210px; height: 210px; left: 105px; top: 140px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--dm-green) 45%, transparent), transparent 68%); }
+    #dante-screens .dm-track { position: absolute; width: 245px; height: 300px; left: 72px; top: 110px; border: 5px solid var(--dm-gold); border-left-color: transparent; border-bottom-color: color-mix(in srgb, var(--dm-gold) 48%, transparent); border-radius: 46% 56% 48% 43%; transform: rotate(-13deg); }
+
+    #dante-screens .dm-map-top {
+      position: absolute;
+      z-index: 3;
+      top: 12px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    #dante-screens .dm-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    #dante-screens .dm-chip {
+      min-height: 38px;
+      padding: 0 11px;
+      border: 1px solid var(--dm-border);
+      border-radius: 999px;
+      color: var(--dm-text);
+      background: color-mix(in srgb, var(--dm-panel) 94%, transparent);
+      box-shadow: 0 4px 12px light-dark(rgba(20,40,30,.08), rgba(0,0,0,.22));
+      font-size: 12px;
+      font-weight: 500;
+    }
+    #dante-screens .dm-chip.active { color: #fff; border-color: var(--dm-green-dark); background: var(--dm-green-dark); }
+    #dante-screens .dm-map-tool {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 42px;
+      border: 1px solid var(--dm-border);
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: var(--dm-green);
+      background: var(--dm-panel);
+      box-shadow: 0 5px 14px light-dark(rgba(20,40,30,.1), rgba(0,0,0,.25));
+    }
+    #dante-screens .dm-map-tool svg { width: 19px; height: 19px; }
+
+    #dante-screens .dm-user {
+      position: absolute;
+      left: 184px;
+      top: 294px;
+      width: 23px;
+      height: 23px;
+      border: 4px solid #fff;
+      border-radius: 50%;
+      background: var(--dm-green);
+      box-shadow: 0 2px 9px rgba(0,0,0,.28);
+      z-index: 2;
+    }
+    #dante-screens .dm-pin {
+      position: absolute;
+      left: 260px;
+      top: 197px;
+      width: 39px;
+      height: 39px;
+      display: grid;
+      place-items: center;
+      border-radius: 50% 50% 50% 8px;
+      color: #fff;
+      background: var(--dm-gold);
+      box-shadow: 0 3px 11px rgba(0,0,0,.23);
+      transform: rotate(-45deg);
+      z-index: 2;
+    }
+    #dante-screens .dm-pin svg { width: 18px; height: 18px; transform: rotate(45deg); }
+
+    #dante-screens .dm-map-main-action {
+      position: absolute;
+      z-index: 4;
+      left: 44px;
+      right: 44px;
+      bottom: 22px;
+      min-height: 50px;
+      border: 0;
+      border-radius: 17px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: #fff;
+      background: var(--dm-green-dark);
+      box-shadow: 0 9px 22px rgba(0,0,0,.22);
+      font-weight: 500;
+    }
+    #dante-screens .dm-map-main-action svg { width: 19px; height: 19px; }
+
+    #dante-screens .dm-sheet {
+      position: absolute;
+      z-index: 5;
+      left: 9px;
+      right: 9px;
+      bottom: 9px;
+      padding: 10px 14px 14px;
+      border: 1px solid var(--dm-border);
+      border-radius: 24px;
+      color: var(--dm-text);
+      background: color-mix(in srgb, var(--dm-panel) 97%, transparent);
+      box-shadow: 0 14px 36px light-dark(rgba(20,40,30,.18), rgba(0,0,0,.5));
+      backdrop-filter: blur(14px);
+    }
+    #dante-screens .dm-handle { width: 38px; height: 4px; margin: 0 auto 10px; border-radius: 99px; background: var(--dm-border); }
+    #dante-screens .dm-sheet-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+    #dante-screens .dm-sheet h2 { margin: 0; font-size: 18px; font-weight: 500; }
+    #dante-screens .dm-sheet p { margin: 4px 0 0; color: var(--dm-muted); font-size: 12px; }
+    #dante-screens .dm-coords { margin-top: 10px; display: flex; gap: 7px; color: var(--dm-muted); font-size: 11px; }
+    #dante-screens .dm-coords span { padding: 6px 8px; border-radius: 9px; background: var(--dm-bg); }
+    #dante-screens .dm-sheet-actions { display: grid; grid-template-columns: 1fr 2fr; gap: 8px; margin-top: 12px; }
+    #dante-screens .dm-text-action {
+      width: 100%;
+      min-height: 40px;
+      margin-top: 6px;
+      border: 0;
+      color: var(--dm-green);
+      background: transparent;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    #dante-screens .dm-secondary-action, #dante-screens .dm-primary-action {
+      min-height: 46px;
+      border-radius: 14px;
+      padding: 0 12px;
+      font-weight: 500;
+    }
+    #dante-screens .dm-secondary-action { border: 1px solid var(--dm-border); color: var(--dm-text); background: transparent; }
+    #dante-screens .dm-primary-action { border: 1px solid var(--dm-green-dark); color: #fff; background: var(--dm-green-dark); }
+
+    #dante-screens .dm-loading {
+      height: 100%;
+      padding: 30px 18px 92px;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      text-align: center;
+      background: var(--dm-bg);
+    }
+    #dante-screens .dm-radar {
+      width: 164px;
+      height: 164px;
+      position: relative;
+      margin-bottom: 24px;
+      border: 1px solid var(--dm-border);
+      border-radius: 50%;
+      background: radial-gradient(circle, transparent 0 29%, var(--dm-border) 30% 31%, transparent 32% 61%, var(--dm-border) 62% 63%, transparent 64%);
+    }
+    #dante-screens .dm-radar::before { content: ""; position: absolute; inset: 14px; border-radius: 50%; background: conic-gradient(from 220deg, color-mix(in srgb, var(--dm-green) 70%, transparent), transparent 28%); }
+    #dante-screens .dm-radar::after { content: ""; position: absolute; left: 77px; top: 77px; width: 10px; height: 10px; border-radius: 50%; background: var(--dm-gold); box-shadow: 0 0 0 7px color-mix(in srgb, var(--dm-gold) 20%, transparent); }
+    #dante-screens .dm-loading h2 { margin: 0 0 8px; font-size: 22px; font-weight: 500; }
+    #dante-screens .dm-loading p { max-width: 290px; margin: 0; color: var(--dm-muted); font-size: 13px; }
+    #dante-screens .dm-loading-steps { width: 100%; max-width: 290px; margin-top: 24px; display: grid; gap: 9px; text-align: left; }
+    #dante-screens .dm-loading-step { display: flex; align-items: center; gap: 9px; color: var(--dm-muted); font-size: 12px; }
+    #dante-screens .dm-loading-step.done { color: var(--dm-green); }
+    #dante-screens .dm-loading-step svg { width: 16px; height: 16px; }
+
+    #dante-screens .dm-content { padding: 18px 16px 92px; overflow: hidden; }
+    #dante-screens .dm-page-title { margin: 0 0 4px; font-size: 22px; font-weight: 500; }
+    #dante-screens .dm-page-lead { margin: 0 0 16px; color: var(--dm-muted); font-size: 13px; }
+    #dante-screens .dm-result-hero { padding: 16px; border-radius: 21px; color: #fff; background: var(--dm-green-dark); }
+    #dante-screens .dm-result-hero small { color: rgba(255,255,255,.64); }
+    #dante-screens .dm-result-title { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-top: 3px; }
+    #dante-screens .dm-result-title h2 { margin: 0; font-size: 20px; font-weight: 500; }
+    #dante-screens .dm-result-value { margin-top: 18px; display: flex; align-items: end; justify-content: space-between; }
+    #dante-screens .dm-result-value strong { font-size: 56px; line-height: 1; font-weight: 500; }
+    #dante-screens .dm-result-value span { padding-bottom: 7px; color: rgba(255,255,255,.7); font-size: 12px; }
+    #dante-screens .dm-score-list { margin-top: 15px; display: grid; gap: 12px; }
+    #dante-screens .dm-score-row { display: grid; grid-template-columns: 96px 1fr 28px; align-items: center; gap: 9px; font-size: 12px; }
+    #dante-screens .dm-score-track { height: 7px; overflow: hidden; border-radius: 99px; background: var(--dm-border); }
+    #dante-screens .dm-score-fill { height: 100%; border-radius: inherit; background: var(--dm-green); }
+    #dante-screens .dm-score-row output { text-align: right; font-weight: 500; }
+    #dante-screens .dm-info-strip { margin-top: 17px; padding: 12px; border-radius: 15px; display: flex; gap: 9px; color: var(--dm-text); background: var(--dm-green-soft); font-size: 12px; }
+    #dante-screens .dm-info-strip svg { flex: 0 0 17px; width: 17px; height: 17px; }
+    #dante-screens .dm-full-action { width: 100%; min-height: 46px; margin-top: 14px; border: 1px solid var(--dm-green-dark); border-radius: 14px; color: #fff; background: var(--dm-green-dark); font-weight: 500; }
+
+    #dante-screens .dm-tracker-panel {
+      position: absolute;
+      z-index: 5;
+      top: 12px;
+      left: 12px;
+      right: 12px;
+      padding: 13px;
+      border-radius: 19px;
+      color: #fff;
+      background: var(--dm-green-dark);
+      box-shadow: 0 8px 22px rgba(0,0,0,.23);
+    }
+    #dante-screens .dm-live { display: flex; align-items: center; justify-content: space-between; margin-bottom: 11px; color: rgba(255,255,255,.72); font-size: 11px; }
+    #dante-screens .dm-live span:first-child { display: flex; align-items: center; gap: 7px; }
+    #dante-screens .dm-live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--dm-alert); }
+    #dante-screens .dm-tracker-values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+    #dante-screens .dm-tracker-value strong { display: block; font-size: 19px; font-weight: 500; }
+    #dante-screens .dm-tracker-value small { color: rgba(255,255,255,.6); font-size: 9px; }
+    #dante-screens .dm-tracker-buttons { margin-top: 12px; display: grid; grid-template-columns: 1fr 48px; gap: 8px; }
+    #dante-screens .dm-waypoint-action, #dante-screens .dm-stop-action { min-height: 46px; border: 0; border-radius: 14px; color: #fff; font-weight: 500; }
+    #dante-screens .dm-waypoint-action { background: color-mix(in srgb, var(--dm-gold) 84%, #000); }
+    #dante-screens .dm-stop-action { background: var(--dm-alert); }
+
+    #dante-screens .dm-waypoint-form { padding: 15px 16px 92px; }
+    #dante-screens .dm-form-map { height: 132px; position: relative; overflow: hidden; border-radius: 18px; background: radial-gradient(circle at 55% 44%, color-mix(in srgb, var(--dm-green) 36%, transparent), transparent 52%), repeating-radial-gradient(ellipse at 48% 44%, transparent 0 25px, var(--dm-border) 26px 27px, transparent 28px 48px), var(--dm-bg); }
+    #dante-screens .dm-form-pin { position: absolute; left: calc(50% - 15px); top: 45px; color: var(--dm-gold); }
+    #dante-screens .dm-form-pin svg { width: 30px; height: 30px; }
+    #dante-screens .dm-form-grid { margin-top: 12px; display: grid; gap: 10px; }
+    #dante-screens .dm-field label { display: block; margin-bottom: 5px; color: var(--dm-muted); font-size: 11px; }
+    #dante-screens .dm-field select, #dante-screens .dm-field input, #dante-screens .dm-field textarea {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid var(--dm-border);
+      border-radius: 13px;
+      padding: 10px 12px;
+      color: var(--dm-text);
+      background: var(--dm-panel);
+      font-size: 16px;
+    }
+    #dante-screens .dm-field textarea { min-height: 68px; resize: none; }
+    #dante-screens .dm-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+    #dante-screens .dm-photo-action { min-height: 44px; border: 1px solid var(--dm-border); border-radius: 13px; display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--dm-text); background: var(--dm-panel); }
+    #dante-screens .dm-form-actions { display: grid; grid-template-columns: 1fr 1.4fr; gap: 8px; }
+
+    #dante-screens .dm-list { display: grid; gap: 9px; }
+    #dante-screens .dm-list-item {
+      min-height: 70px;
+      width: 100%;
+      padding: 11px;
+      border: 1px solid var(--dm-border);
+      border-radius: 17px;
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      align-items: center;
+      gap: 10px;
+      text-align: left;
+      color: var(--dm-text);
+      background: var(--dm-panel);
+    }
+    #dante-screens .dm-list-icon { width: 42px; height: 42px; border-radius: 13px; display: grid; place-items: center; color: var(--dm-green); background: var(--dm-green-soft); }
+    #dante-screens .dm-list-icon svg { width: 19px; height: 19px; }
+    #dante-screens .dm-list-copy strong { display: block; font-size: 14px; font-weight: 500; }
+    #dante-screens .dm-list-copy span { display: block; margin-top: 3px; color: var(--dm-muted); font-size: 11px; }
+    #dante-screens .dm-list-value { color: var(--dm-green); font-size: 13px; font-weight: 500; }
+
+    #dante-screens .dm-summary-map { height: 180px; position: relative; overflow: hidden; border-radius: 19px; background: repeating-radial-gradient(ellipse at 48% 44%, transparent 0 28px, var(--dm-border) 29px 30px, transparent 31px 52px), var(--dm-green-soft); }
+    #dante-screens .dm-summary-track { position: absolute; width: 190px; height: 124px; left: 86px; top: 25px; border: 5px solid var(--dm-gold); border-left-color: transparent; border-radius: 50%; transform: rotate(-9deg); }
+    #dante-screens .dm-summary-stats { margin-top: 13px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+    #dante-screens .dm-summary-stat { padding: 10px 6px; border-radius: 13px; text-align: center; background: var(--dm-panel); }
+    #dante-screens .dm-summary-stat strong { display: block; font-size: 17px; font-weight: 500; }
+    #dante-screens .dm-summary-stat span { display: block; margin-top: 2px; color: var(--dm-muted); font-size: 9px; }
+
+    #dante-screens .dm-monitor-list { display: grid; gap: 9px; }
+    #dante-screens .dm-monitor-item {
+      padding: 12px;
+      border: 1px solid var(--dm-border);
+      border-radius: 17px;
+      background: var(--dm-panel);
+    }
+    #dante-screens .dm-monitor-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+    #dante-screens .dm-monitor-head strong { display: block; font-size: 14px; font-weight: 500; }
+    #dante-screens .dm-monitor-head span { display: block; margin-top: 3px; color: var(--dm-muted); font-size: 11px; }
+    #dante-screens .dm-monitor-score { min-width: 42px; text-align: right; color: var(--dm-green); font-size: 20px; font-weight: 500; }
+    #dante-screens .dm-monitor-foot { margin-top: 10px; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: var(--dm-muted); font-size: 10px; }
+    #dante-screens .dm-trend-up { color: var(--dm-green); font-weight: 500; }
+    #dante-screens .dm-trend-down { color: var(--dm-alert); font-weight: 500; }
+
+    #dante-screens .dm-grid-map { position: absolute; inset: 0 0 72px; overflow: hidden; background: repeating-radial-gradient(ellipse at 48% 44%, transparent 0 38px, color-mix(in srgb, var(--dm-border) 68%, transparent) 39px 40px, transparent 41px 70px), linear-gradient(145deg, light-dark(#e9e7dd, #17201c), light-dark(#f8f5ef, #202b26)); }
+    #dante-screens .dm-grid-cells { position: absolute; left: 26px; right: 26px; top: 86px; display: grid; grid-template-columns: repeat(5, 1fr); transform: rotate(-8deg); }
+    #dante-screens .dm-grid-cell { aspect-ratio: 1; border: 1px solid color-mix(in srgb, var(--dm-panel) 70%, transparent); background: color-mix(in srgb, var(--dm-green) var(--cell-strength), transparent); }
+    #dante-screens .dm-grid-cell.selected { box-shadow: inset 0 0 0 3px var(--dm-gold); }
+    #dante-screens .dm-grid-legend { position: absolute; z-index: 3; top: 14px; left: 14px; right: 14px; padding: 10px 12px; border: 1px solid var(--dm-border); border-radius: 15px; color: var(--dm-text); background: color-mix(in srgb, var(--dm-panel) 96%, transparent); font-size: 11px; }
+    #dante-screens .dm-grid-legend-line { height: 7px; margin-top: 7px; border-radius: 99px; background: linear-gradient(90deg, color-mix(in srgb, var(--dm-green) 12%, transparent), var(--dm-green)); }
+    #dante-screens .dm-grid-legend-labels { margin-top: 3px; display: flex; justify-content: space-between; color: var(--dm-muted); font-size: 9px; }
+
+    #dante-screens .dm-species-list { display: grid; gap: 9px; }
+    #dante-screens .dm-species-row {
+      min-height: 72px;
+      padding: 11px 12px;
+      border: 1px solid var(--dm-border);
+      border-radius: 17px;
+      display: grid;
+      grid-template-columns: 32px 1fr 45px;
+      align-items: center;
+      gap: 10px;
+      background: var(--dm-panel);
+    }
+    #dante-screens .dm-species-rank { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 10px; color: var(--dm-green); background: var(--dm-green-soft); font-size: 12px; font-weight: 500; }
+    #dante-screens .dm-species-copy strong { display: block; font-size: 14px; font-weight: 500; }
+    #dante-screens .dm-species-copy span { display: block; margin-top: 4px; color: var(--dm-muted); font-size: 10px; }
+    #dante-screens .dm-species-bar { height: 6px; margin-top: 7px; overflow: hidden; border-radius: 99px; background: var(--dm-border); }
+    #dante-screens .dm-species-bar i { display: block; height: 100%; border-radius: inherit; background: var(--dm-green); }
+    #dante-screens .dm-species-value { text-align: right; color: var(--dm-green); font-size: 20px; font-weight: 500; }
+
+    #dante-screens .dm-nav {
+      position: absolute;
+      z-index: 20;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      min-height: 72px;
+      padding: 7px 7px 11px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--dm-border);
+      background: color-mix(in srgb, var(--dm-panel) 97%, transparent);
+      backdrop-filter: blur(14px);
+    }
+    #dante-screens .dm-nav button { min-height: 52px; border: 0; border-radius: 13px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: var(--dm-muted); background: transparent; font-size: 10px; }
+    #dante-screens .dm-nav button.active { color: var(--dm-green); background: var(--dm-green-soft); }
+    #dante-screens .dm-nav svg { width: 19px; height: 19px; }
+
+    @media (max-width: 360px) {
+      #dante-screens .dm-phone { border-radius: 22px; }
+      #dante-screens .dm-sheet-actions { grid-template-columns: 1fr; }
+      #dante-screens .dm-sheet { padding-inline: 11px; }
+      #dante-screens .dm-form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <div class="dm-scenes" aria-label="Seleziona schermata">
+    <button class="dm-scene-button" data-scene="explore" aria-pressed="false" type="button">1. Mappa</button>
+    <button class="dm-scene-button" data-scene="point" aria-pressed="true" type="button">2. Punto</button>
+    <button class="dm-scene-button" data-scene="loading" aria-pressed="false" type="button">3. Elaborazione</button>
+    <button class="dm-scene-button" data-scene="result" aria-pressed="false" type="button">4. Risultato</button>
+    <button class="dm-scene-button" data-scene="tracking" aria-pressed="false" type="button">5. Uscita GPS</button>
+    <button class="dm-scene-button" data-scene="waypoint" aria-pressed="false" type="button">6. Waypoint</button>
+    <button class="dm-scene-button" data-scene="saved" aria-pressed="false" type="button">7. Salvati</button>
+    <button class="dm-scene-button" data-scene="summary" aria-pressed="false" type="button">8. Riepilogo</button>
+    <button class="dm-scene-button" data-scene="monitoring" aria-pressed="false" type="button">9. Monitoraggio</button>
+    <button class="dm-scene-button" data-scene="grid" aria-pressed="false" type="button">10. Griglia</button>
+    <button class="dm-scene-button" data-scene="multispecies" aria-pressed="false" type="button">11. Multi-specie</button>
+  </div>
+
+  <section class="dm-phone" aria-label="DANTE AI Scout mobile">
+    <div class="dm-status"><span>09:41</span><span><i data-lucide="signal" aria-hidden="true"></i><i data-lucide="wifi" aria-hidden="true"></i><i data-lucide="battery-medium" aria-hidden="true"></i></span></div>
+    <header class="dm-header">
+      <div class="dm-brand"><span class="dm-logo"><i data-lucide="scan-search" aria-hidden="true"></i></span><span><strong>DANTE AI Scout</strong><small id="dm-context">Punto selezionato</small></span></div>
+      <div class="dm-header-actions">
+        <button class="dm-profile" data-go="monitoring" aria-label="Apri monitoraggio" type="button"><i data-lucide="bell" aria-hidden="true"></i></button>
+        <button class="dm-profile" aria-label="Apri profilo" type="button"><i data-lucide="circle-user-round" aria-hidden="true"></i></button>
+      </div>
+    </header>
+
+    <main class="dm-screen" data-panel="explore" hidden>
+      <div class="dm-map">
+        <div class="dm-road r1"></div><div class="dm-road r2"></div><div class="dm-road r3"></div><div class="dm-heat"></div>
+        <div class="dm-map-top"><div class="dm-chips"><button class="dm-chip active" type="button">Scorzone</button><button class="dm-chip" type="button">Idoneità</button><button class="dm-chip" data-go="grid" type="button">Griglia</button></div><button class="dm-map-tool" aria-label="Centra posizione" type="button"><i data-lucide="locate-fixed" aria-hidden="true"></i></button></div>
+        <div class="dm-user"></div><div class="dm-pin"><i data-lucide="trees" aria-hidden="true"></i></div>
+        <button class="dm-map-main-action" data-go="tracking" type="button"><i data-lucide="navigation" aria-hidden="true"></i>Avvia uscita</button>
+      </div>
+    </main>
+
+    <main class="dm-screen" data-panel="point">
+      <div class="dm-map">
+        <div class="dm-road r1"></div><div class="dm-road r2"></div><div class="dm-road r3"></div><div class="dm-heat"></div>
+        <div class="dm-map-top"><div class="dm-chips"><button class="dm-chip active" type="button">Scorzone</button><button class="dm-chip" type="button">Idoneità</button></div><button class="dm-map-tool" aria-label="Centra posizione" type="button"><i data-lucide="locate-fixed" aria-hidden="true"></i></button></div>
+        <div class="dm-user"></div><div class="dm-pin"><i data-lucide="crosshair" aria-hidden="true"></i></div>
+        <section class="dm-sheet" aria-label="Punto selezionato">
+          <div class="dm-handle"></div>
+          <div class="dm-sheet-head"><div><h2>Punto selezionato</h2><p>Monti Sabini · posizione da mappa</p></div><button class="dm-map-tool" aria-label="Sposta punto" type="button"><i data-lucide="move" aria-hidden="true"></i></button></div>
+          <div class="dm-coords"><span>42.2200, 12.8500</span><span>396 m</span><span>±7 m</span></div>
+          <div class="dm-sheet-actions"><button class="dm-secondary-action" type="button">Salva luogo</button><button class="dm-primary-action" data-go="loading" type="button">Analizza questo punto</button></div>
+          <button class="dm-text-action" data-go="multispecies" type="button">Confronta tutte le specie compatibili</button>
+        </section>
+      </div>
+    </main>
+
+    <main class="dm-screen" data-panel="loading" hidden>
+      <section class="dm-loading" aria-live="polite">
+        <div class="dm-radar" aria-hidden="true"></div>
+        <h2>Analisi del punto</h2>
+        <p>DANTE sta combinando le condizioni attuali con il profilo scientifico dello Scorzone.</p>
+        <div class="dm-loading-steps">
+          <div class="dm-loading-step done"><i data-lucide="circle-check" aria-hidden="true"></i>Meteo e andamento stagionale</div>
+          <div class="dm-loading-step done"><i data-lucide="circle-check" aria-hidden="true"></i>Terreno e morfologia</div>
+          <div class="dm-loading-step"><i data-lucide="loader-circle" aria-hidden="true"></i>Vegetazione e suolo</div>
+        </div>
+        <button class="dm-full-action" data-go="result" type="button">Mostra risultato</button>
+      </section>
+    </main>
+
+    <main class="dm-screen dm-content" data-panel="result" hidden>
+      <h1 class="dm-page-title">Analisi del punto</h1><p class="dm-page-lead">Monti Sabini · Scorzone · aggiornata ora</p>
+      <section class="dm-result-hero"><small>RICERCA OGGI</small><div class="dm-result-title"><h2>Condizioni favorevoli</h2><i data-lucide="sparkles" aria-hidden="true"></i></div><div class="dm-result-value"><strong>77</strong><span>su 100</span></div></section>
+      <div class="dm-score-list">
+        <div class="dm-score-row"><span>Habitat</span><div class="dm-score-track"><div class="dm-score-fill" style="width:91%"></div></div><output>91</output></div>
+        <div class="dm-score-row"><span>Annata</span><div class="dm-score-track"><div class="dm-score-fill" style="width:100%"></div></div><output>100</output></div>
+        <div class="dm-score-row"><span>Ricerca oggi</span><div class="dm-score-track"><div class="dm-score-fill" style="width:77%"></div></div><output>77</output></div>
+        <div class="dm-score-row"><span>Affidabilità</span><div class="dm-score-track"><div class="dm-score-fill" style="width:74%"></div></div><output>74</output></div>
+      </div>
+      <div class="dm-info-strip"><i data-lucide="info" aria-hidden="true"></i><span>Habitat molto adatto. Le condizioni recenti sostengono la ricerca, con affidabilità buona ma non completa.</span></div>
+      <button class="dm-full-action" type="button">Salva analisi nel luogo</button>
+    </main>
+
+    <main class="dm-screen" data-panel="tracking" hidden>
+      <div class="dm-map">
+        <div class="dm-road r1"></div><div class="dm-road r2"></div><div class="dm-road r3"></div><div class="dm-track"></div><div class="dm-user"></div><div class="dm-pin"><i data-lucide="trees" aria-hidden="true"></i></div>
+        <section class="dm-tracker-panel" aria-label="Uscita GPS in corso">
+          <div class="dm-live"><span><span class="dm-live-dot"></span>REGISTRAZIONE GPS</span><span>precisione ±6 m</span></div>
+          <div class="dm-tracker-values"><div class="dm-tracker-value"><strong>00:24:18</strong><small>DURATA</small></div><div class="dm-tracker-value"><strong>1,82 km</strong><small>DISTANZA</small></div><div class="dm-tracker-value"><strong>412 m</strong><small>QUOTA</small></div></div>
+          <div class="dm-tracker-buttons"><button class="dm-waypoint-action" data-go="waypoint" type="button">+ Segna waypoint</button><button class="dm-stop-action" data-go="summary" aria-label="Termina uscita" type="button"><i data-lucide="square" aria-hidden="true"></i></button></div>
+        </section>
+      </div>
+    </main>
+
+    <main class="dm-screen dm-waypoint-form" data-panel="waypoint" hidden>
+      <h1 class="dm-page-title">Nuovo waypoint</h1><p class="dm-page-lead">Coordinate e ora vengono registrate automaticamente.</p>
+      <div class="dm-form-map"><span class="dm-form-pin"><i data-lucide="map-pin" aria-hidden="true"></i></span></div>
+      <div class="dm-form-grid">
+        <div class="dm-form-row"><div class="dm-field"><label for="dm-type">Tipo</label><select id="dm-type"><option>Pianello</option><option>Ritrovamento</option><option>Habitat interessante</option><option>Parcheggio</option><option>Nota</option></select></div><div class="dm-field"><label for="dm-species">Specie</label><select id="dm-species"><option>Scorzone</option><option>Uncinato</option><option>Bianchetto</option><option>Bianco pregiato</option></select></div></div>
+        <button class="dm-photo-action" type="button"><i data-lucide="camera" aria-hidden="true"></i>Aggiungi foto</button>
+        <div class="dm-field"><label for="dm-notes">Note</label><textarea id="dm-notes" placeholder="Vegetazione, esposizione, terreno…"></textarea></div>
+        <div class="dm-form-actions"><button class="dm-secondary-action" data-go="tracking" type="button">Salva</button><button class="dm-primary-action" data-go="loading" type="button">Salva e analizza</button></div>
+      </div>
+    </main>
+
+    <main class="dm-screen dm-content" data-panel="saved" hidden>
+      <h1 class="dm-page-title">Luoghi salvati</h1><p class="dm-page-lead">Saved Places, waypoint e ritrovamenti in un solo archivio.</p>
+      <div class="dm-list">
+        <button class="dm-list-item" data-go="point" type="button"><span class="dm-list-icon"><i data-lucide="trees" aria-hidden="true"></i></span><span class="dm-list-copy"><strong>Pianello querce</strong><span>Monti Sabini · 2 foto · oggi</span></span><span class="dm-list-value">77</span></button>
+        <button class="dm-list-item" type="button"><span class="dm-list-icon"><i data-lucide="map-pin" aria-hidden="true"></i></span><span class="dm-list-copy"><strong>Versante nord-ovest</strong><span>396 m · analisi 28 ago</span></span><span class="dm-list-value">74</span></button>
+        <button class="dm-list-item" type="button"><span class="dm-list-icon"><i data-lucide="camera" aria-hidden="true"></i></span><span class="dm-list-copy"><strong>Ritrovamento precedente</strong><span>Scorzone · posizione privata</span></span><span class="dm-list-value"><i data-lucide="chevron-right" aria-hidden="true"></i></span></button>
+      </div>
+    </main>
+
+    <main class="dm-screen dm-content" data-panel="summary" hidden>
+      <h1 class="dm-page-title">Uscita completata</h1><p class="dm-page-lead">Monti Sabini · oggi, 09:16–10:58</p>
+      <div class="dm-summary-map"><div class="dm-summary-track"></div></div>
+      <div class="dm-summary-stats"><div class="dm-summary-stat"><strong>4,8 km</strong><span>DISTANZA</span></div><div class="dm-summary-stat"><strong>1h 42m</strong><span>DURATA</span></div><div class="dm-summary-stat"><strong>+186 m</strong><span>DISLIVELLO</span></div></div>
+      <div class="dm-list" style="margin-top:12px"><button class="dm-list-item" data-go="saved" type="button"><span class="dm-list-icon"><i data-lucide="map-pinned" aria-hidden="true"></i></span><span class="dm-list-copy"><strong>7 waypoint registrati</strong><span>2 pianelli · 1 ritrovamento · 4 note</span></span><span class="dm-list-value"><i data-lucide="chevron-right" aria-hidden="true"></i></span></button></div>
+      <button class="dm-full-action" type="button">Salva e sincronizza uscita</button>
+    </main>
+
+    <main class="dm-screen dm-content" data-panel="monitoring" hidden>
+      <h1 class="dm-page-title">Monitoraggio</h1><p class="dm-page-lead">Zone salvate che DANTE ricontrolla al variare delle condizioni.</p>
+      <div class="dm-monitor-list">
+        <section class="dm-monitor-item"><div class="dm-monitor-head"><div><strong>Monti Sabini · pianello querce</strong><span>Scorzone · aggiornato 35 min fa</span></div><div class="dm-monitor-score">82</div></div><div class="dm-monitor-foot"><span class="dm-trend-up">↑ +5 da ieri</span><span>Pioggia utile rilevata</span></div></section>
+        <section class="dm-monitor-item"><div class="dm-monitor-head"><div><strong>Monte Gennaro · versante nord</strong><span>Uncinato · aggiornato 35 min fa</span></div><div class="dm-monitor-score">71</div></div><div class="dm-monitor-foot"><span class="dm-trend-up">↑ +2 da ieri</span><span>Umidità in aumento</span></div></section>
+        <section class="dm-monitor-item"><div class="dm-monitor-head"><div><strong>Castel di Guido · zona ovest</strong><span>Bianchetto · aggiornato 35 min fa</span></div><div class="dm-monitor-score">48</div></div><div class="dm-monitor-foot"><span class="dm-trend-down">↓ −6 da ieri</span><span>Suolo superficiale secco</span></div></section>
+      </div>
+      <button class="dm-full-action" type="button">Aggiungi zona al monitoraggio</button>
+    </main>
+
+    <main class="dm-screen" data-panel="grid" hidden>
+      <div class="dm-grid-map">
+        <div class="dm-road r1"></div><div class="dm-road r2"></div><div class="dm-road r3"></div>
+        <section class="dm-grid-legend"><strong>Griglia predittiva · Scorzone</strong><div class="dm-grid-legend-line"></div><div class="dm-grid-legend-labels"><span>Idoneità minore</span><span>Idoneità maggiore</span></div></section>
+        <div class="dm-grid-cells" aria-label="Celle della griglia predittiva">
+          <button class="dm-grid-cell" style="--cell-strength:18%" aria-label="Cella 1, punteggio 35" type="button"></button><button class="dm-grid-cell" style="--cell-strength:28%" aria-label="Cella 2, punteggio 44" type="button"></button><button class="dm-grid-cell" style="--cell-strength:42%" aria-label="Cella 3, punteggio 57" type="button"></button><button class="dm-grid-cell" style="--cell-strength:55%" aria-label="Cella 4, punteggio 66" type="button"></button><button class="dm-grid-cell" style="--cell-strength:34%" aria-label="Cella 5, punteggio 49" type="button"></button>
+          <button class="dm-grid-cell" style="--cell-strength:25%" aria-label="Cella 6, punteggio 41" type="button"></button><button class="dm-grid-cell" style="--cell-strength:48%" aria-label="Cella 7, punteggio 61" type="button"></button><button class="dm-grid-cell selected" style="--cell-strength:82%" aria-label="Cella selezionata, punteggio 84" type="button"></button><button class="dm-grid-cell" style="--cell-strength:70%" aria-label="Cella 9, punteggio 76" type="button"></button><button class="dm-grid-cell" style="--cell-strength:38%" aria-label="Cella 10, punteggio 53" type="button"></button>
+          <button class="dm-grid-cell" style="--cell-strength:16%" aria-label="Cella 11, punteggio 33" type="button"></button><button class="dm-grid-cell" style="--cell-strength:36%" aria-label="Cella 12, punteggio 51" type="button"></button><button class="dm-grid-cell" style="--cell-strength:68%" aria-label="Cella 13, punteggio 74" type="button"></button><button class="dm-grid-cell" style="--cell-strength:58%" aria-label="Cella 14, punteggio 68" type="button"></button><button class="dm-grid-cell" style="--cell-strength:31%" aria-label="Cella 15, punteggio 46" type="button"></button>
+          <button class="dm-grid-cell" style="--cell-strength:12%" aria-label="Cella 16, punteggio 29" type="button"></button><button class="dm-grid-cell" style="--cell-strength:22%" aria-label="Cella 17, punteggio 38" type="button"></button><button class="dm-grid-cell" style="--cell-strength:45%" aria-label="Cella 18, punteggio 59" type="button"></button><button class="dm-grid-cell" style="--cell-strength:40%" aria-label="Cella 19, punteggio 55" type="button"></button><button class="dm-grid-cell" style="--cell-strength:20%" aria-label="Cella 20, punteggio 36" type="button"></button>
+        </div>
+        <section class="dm-sheet"><div class="dm-handle"></div><div class="dm-sheet-head"><div><h2>Cella 500 × 500 m</h2><p>Idoneità predittiva elevata</p></div><div class="dm-monitor-score">84</div></div><div class="dm-coords"><span>Quota 428 m</span><span>NO</span><span>Bosco</span></div><div class="dm-sheet-actions"><button class="dm-secondary-action" type="button">Monitora</button><button class="dm-primary-action" data-go="point" type="button">Analizza un punto</button></div></section>
+      </div>
+    </main>
+
+    <main class="dm-screen dm-content" data-panel="multispecies" hidden>
+      <h1 class="dm-page-title">Analisi multi-specie</h1><p class="dm-page-lead">Stesso punto, confronto ordinato tra le specie compatibili.</p>
+      <div class="dm-species-list">
+        <section class="dm-species-row"><span class="dm-species-rank">1</span><div class="dm-species-copy"><strong>Scorzone</strong><span>Habitat molto compatibile</span><div class="dm-species-bar"><i style="width:77%"></i></div></div><span class="dm-species-value">77</span></section>
+        <section class="dm-species-row"><span class="dm-species-rank">2</span><div class="dm-species-copy"><strong>Uncinato</strong><span>Compatibilità buona, fenologia da verificare</span><div class="dm-species-bar"><i style="width:69%"></i></div></div><span class="dm-species-value">69</span></section>
+        <section class="dm-species-row"><span class="dm-species-rank">3</span><div class="dm-species-copy"><strong>Bianchetto</strong><span>Terreno parzialmente compatibile</span><div class="dm-species-bar"><i style="width:52%"></i></div></div><span class="dm-species-value">52</span></section>
+        <section class="dm-species-row"><span class="dm-species-rank">4</span><div class="dm-species-copy"><strong>Bianco pregiato</strong><span>Condizioni locali poco favorevoli</span><div class="dm-species-bar"><i style="width:31%"></i></div></div><span class="dm-species-value">31</span></section>
+      </div>
+      <div class="dm-info-strip"><i data-lucide="info" aria-hidden="true"></i><span>I punteggi restano distinti: non vengono mediati tra specie con esigenze ecologiche diverse.</span></div>
+      <button class="dm-full-action" data-go="result" type="button">Apri analisi Scorzone</button>
+    </main>
+
+    <nav class="dm-nav" aria-label="Navigazione principale">
+      <button data-go="explore" data-nav="map" class="active" type="button"><i data-lucide="map" aria-hidden="true"></i><span>Mappa</span></button>
+      <button data-go="tracking" data-nav="trips" type="button"><i data-lucide="route" aria-hidden="true"></i><span>Uscite</span></button>
+      <button data-go="saved" data-nav="saved" type="button"><i data-lucide="bookmark" aria-hidden="true"></i><span>Salvati</span></button>
+      <button data-go="result" data-nav="analysis" type="button"><i data-lucide="scan-search" aria-hidden="true"></i><span>Analisi</span></button>
+    </nav>
+  </section>
+
+  <script>
+    (() => {
+      const root = document.getElementById('dante-screens');
+      const state = { accent: '#c99a4b', overlay: true, opening: 'Punto' };
+      const contexts = {
+        explore: 'Esplorazione sul campo', point: 'Punto selezionato', loading: 'Analisi scientifica',
+        result: 'Risultato scientifico', tracking: 'Uscita GPS in corso', waypoint: 'Registrazione sul campo',
+        saved: 'Saved Places e waypoint', summary: 'Riepilogo uscita', monitoring: 'Zone monitorate',
+        grid: 'Griglia predittiva', multispecies: 'Confronto scientifico'
+      };
+
+      function refreshIcons() {
+        if (globalThis.lucide) globalThis.lucide.createIcons({ attrs: { width: 16, height: 16 } });
+      }
+
+      function show(scene) {
+        root.querySelectorAll('[data-panel]').forEach(panel => { panel.hidden = panel.dataset.panel !== scene; });
+        root.querySelectorAll('[data-scene]').forEach(button => { button.setAttribute('aria-pressed', String(button.dataset.scene === scene)); });
+        root.querySelector('#dm-context').textContent = contexts[scene];
+        root.querySelectorAll('[data-nav]').forEach(button => button.classList.remove('active'));
+        const navMap = { explore: 'map', point: 'map', loading: 'analysis', result: 'analysis', tracking: 'trips', waypoint: 'trips', saved: 'saved', summary: 'trips', monitoring: 'analysis', grid: 'map', multispecies: 'analysis' };
+        const active = root.querySelector(`[data-nav="${navMap[scene]}"]`);
+        if (active) active.classList.add('active');
+        refreshIcons();
+      }
+
+      function renderDesign() {
+        root.style.setProperty('--dm-gold', state.accent);
+        root.querySelectorAll('.dm-heat').forEach(item => { item.hidden = !state.overlay; });
+        const lookup = { Mappa: 'explore', Punto: 'point', Risultato: 'result', 'Uscita GPS': 'tracking', Monitoraggio: 'monitoring', Griglia: 'grid', 'Multi-specie': 'multispecies' };
+        show(lookup[state.opening] || 'point');
+      }
+
+      root.querySelectorAll('[data-scene]').forEach(button => button.addEventListener('click', () => show(button.dataset.scene)));
+      root.querySelectorAll('[data-go]').forEach(button => button.addEventListener('click', () => show(button.dataset.go)));
+      renderDesign();
+      refreshIcons();
+
+      if (globalThis.Tweak) {
+        const tweak = new Tweak({ container: root, onChange: renderDesign });
+        tweak.addColorPicker(state, 'accent', { label: 'Accento waypoint', reference: '--dm-gold' });
+        tweak.addToggle(state, 'overlay', { label: 'Overlay idoneità', reference: 'overlay' });
+        tweak.addSelect(state, 'opening', { label: 'Schermata iniziale', reference: 'opening', options: ['Mappa', 'Punto', 'Risultato', 'Uscita GPS', 'Monitoraggio', 'Griglia', 'Multi-specie'] });
+      }
+    })();
+  </script>
+</div>
